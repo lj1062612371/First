@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        
+        <script src="rem.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="reset.css"/>
+        
+        <style type="text/css">
+        	html,body,#app{
+        		width: 100%;
+        		height: 100%;
+        	}
+        	.container{
+        		width: 100%;
+        		height: 100%;
+        		display: flex;
+        		flex-direction: column;
+        	}
+        	.header{
+        		width: 100%;
+        		height: 1.319444rem;
+        	}
+        	#tou img{
+        		width: 100%;
+        		height: 1.319444rem;
+        	}
+        	.main{
+        		flex: 1;
+        		overflow-y: scroll;
+        	}
+        	.footer{
+        		width: 100%;
+        		height: 1.027777rem;
+        		background: #f5f5f5;
+        	}
+        	#di ul{
+        		display: flex;
+        		flex-direction: row;
+        		text-align: center;
+        	}
+        	#di ul li{
+        		flex: 1;
+        	}
+        	#di ul li img{
+        		width: 0.458333rem;
+        		height: 0.430555rem;
+        	}
+        	#di ul li p{
+        		font-size: 10px;
+        	}
+        	#lunbo img{
+        		width: 100%;
+        		height: 2.916666rem;
+        	}
+        	.sou{
+        		width: 100%;
+        		height: 0.694444rem;
+        		margin-bottom: 10px;
+        	}
+        	.shi{
+        		width: 1.75rem;
+        		height: 0.708333rem;
+        		background-color: #f1f1ef;
+        		display: inline-block;
+        		border-radius: 5px;
+        		margin-left: 10px;
+        		margin-top: 5px;
+        		font-size: 18px;
+        		text-align: center;
+        		line-height: 0.708333rem;
+        		color: #c4c2c0;
+        	}
+        	input{
+        		width: 4rem;
+        		height: 0.708333rem;
+        		border: 1px solid #ccc;
+        		outline: none;
+        		border-radius: 5px;
+        		margin-left: 10px;
+        		text-indent: 10px;
+        	}
+        	#list{
+        		margin-top:20px;
+        	}
+        	#list ul{
+        		margin-top: 10px;
+        		display: flex;
+        		flex-direction: row;
+        		float: left;
+        		text-align: center;
+        	}
+        	#list ul li{
+        		flex: 1;
+        		float: left;
+        		margin-left: 10px;
+        	}
+        	#list ul li img{
+        		padding: 10px 10px;
+        	}
+        	#xin{
+        		width: 100%;
+        		height: 1.041666rem;
+        		line-height: 1.041666rem;
+        	}
+        	.pin{
+        		float: left;
+        		margin-left: 25px;
+        		font-size: 20px;
+        		color: #a5a1a1;
+        	}
+        	.shang{
+        		float: right;
+        		margin-right: 12px;
+        		font-size: 16px;
+        		color: #a5a1a1;
+        	}
+        	#sekuai{
+        		width: 100%;
+        		height: 0.416666rem;
+        		background: #f5f5f5;
+        		margin-top: 40px;
+        		margin-bottom: 15px
+        	}
+        	#banner{
+        		width: 100%;
+        		height: 3.055555rem;
+        		display: flex;
+        		flex-direction: row;
+        	}
+        	.left{
+        		width: 49%;
+        		height: 3.055555rem;
+        	}
+        	.left img{
+        		width: 3.252777rem;
+        		height: 3.055555rem;
+        	}
+        	.right{
+        		width: 49%;
+        		height: 3.055555rem;
+        	}
+        	.right img{
+        		width:3.252777rem;
+        		height: 3.055555rem;
+        	}
+        </style>
+		
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+	</body>
+</html>
+<script type="text/babel">
+	//头部
+	class Myheader extends React.Component{
+		render(){
+			return(
+				<div id="tou">
+				<img src="img/one.jpg"/>
+				</div>
+			)
+		}
+	}
+	//主体
+	class Mymain1 extends React.Component{
+		constructor(){
+			super();
+			this.state={
+				arr:[
+				{
+					imgs:"img/xiao.jpg",
+					name:"火锅"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"为为"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"玩儿"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"玩去"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"啊是"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"自行"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"发广"
+				},{
+					imgs:"img/xiao.jpg",
+					name:"阿什"
+				}
+			]
+			}
+			}
+		
+		render(){
+			return(
+				<div id="yi">
+					<div id="lunbo">
+						<img src="img/two.jpg"/>
+					</div>
+					<div id="sou">
+						<span className="shi">北京市</span><input type="text" placeholder="输入搜索"/>
+					</div>
+					<div id="list">
+					{
+						this.state.arr.map(function(ele,index){
+							return <ul key={index}>
+									<li><img src={ele.imgs}/><p>{ele.name}</p></li>
+								</ul>
+						})
+					}
+					</div>
+					<div id="sekuai"></div>
+					<div id="xin">
+						<span className="pin">新品上市</span><span className="shang">更多 ></span>
+					</div>
+					<div id="banner">
+						<div className="left">
+							<img src="img/two.jpg"/>
+						</div>
+						<div className="right">
+							<img src="img/two.jpg"/>
+						</div>
+					</div>
+				</div>
+			)
+		}
+	}
+	class Mymain2 extends React.Component{
+		render(){
+			return(
+				<div id="er">
+				分类
+				</div>
+			)
+		}
+	}
+	class Mymain3 extends React.Component{
+		render(){
+			return(
+				<div id="san">
+				购物车
+				</div>
+			)
+		}
+	}
+	class Mymain4 extends React.Component{
+		render(){
+			return(
+				<div id="si">
+				我的
+				</div>
+			)
+		}
+	}
+	//底部
+	class Myfooter extends React.Component{
+		render(){
+			return(
+				<div id="di">
+					<ul>
+						<li onClick={()=>{
+							document.getElementById('yi').style.display="block"
+							document.getElementById('er').style.display="none"
+							document.getElementById('san').style.display="none"
+							document.getElementById('si').style.display="none"
+						}}><img src="img/show.jpg"/><p>首页</p></li>
+						<li onClick={()=>{
+							document.getElementById('yi').style.display="none"
+							document.getElementById('er').style.display="block"
+							document.getElementById('san').style.display="none"
+							document.getElementById('si').style.display="none"
+						}}><img src="img/fen.jpg"/><p>分类</p></li>
+						<li onClick={()=>{
+							document.getElementById('yi').style.display="none"
+							document.getElementById('er').style.display="none"
+							document.getElementById('san').style.display="block"
+							document.getElementById('si').style.display="none"
+						}}><img src="img/car.jpg"/><p>购物车</p></li>
+						<li onClick={()=>{
+							document.getElementById('yi').style.display="none"
+							document.getElementById('er').style.display="none"
+							document.getElementById('san').style.display="none"
+							document.getElementById('si').style.display="block"
+						}}><img src="img/my.jpg"/><p>我的</p></li>
+					</ul>
+				</div>
+			)
+		}
+	}
+	
+	ReactDOM.render(
+			<div className="container">
+				<div className="header">
+					<Myheader></Myheader>
+				</div>
+				<div className="main">
+					<Mymain1></Mymain1>
+					<Mymain2></Mymain2>
+					<Mymain3></Mymain3>
+					<Mymain4></Mymain4>
+				</div>
+				<div className="footer">
+					<Myfooter></Myfooter>
+				</div>
+			</div>,
+			document.getElementById('app')
+	)
+</script>
